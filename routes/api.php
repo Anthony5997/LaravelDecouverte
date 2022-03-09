@@ -20,6 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/property', [PropertyController::class, "index"])->name("property");
-Route::get('/allProperties', [PropertyController::class, "all"]);
-Route::get('/allProperties/{id}', [PropertyController::class, "getOne"]);
+Route::get('/properties', [PropertyController::class, "index"]);
+Route::get('/property/{id}', [PropertyController::class, "show"]);
+Route::post('/property/create', [PropertyController::class, "store"]);
+Route::put('/property/update/{id}', [PropertyController::class, 'update']);
+Route::delete('/property/delete/{id}', [PropertyController::class, 'delete']);
